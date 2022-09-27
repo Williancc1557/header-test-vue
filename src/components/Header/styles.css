@@ -4,6 +4,7 @@
   background-color: black;
   height: 8vh;
   justify-content: space-between;
+  color: rgb(194, 194, 194);
 }
 
 .logo {
@@ -11,9 +12,45 @@
   margin-left: 20px;
 }
 
+.logo i {
+  display: flex;
+  font-size: 20px;
+  margin: auto;
+}
+
+.logo img {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
 .links {
   display: flex;
-  width: 10%;
   justify-content: space-between;
-  margin-right: 20px;
+  margin-right: 30px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.options li {
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.options i {
+  font-size: 27px;
+}
+
+.options p {
+  font-size: 20px;
+}
+
+@media (max-width: 411px) {
+  .links {
+    width: 150px;
+  }
 }

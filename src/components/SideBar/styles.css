@@ -1,0 +1,47 @@
+.side-bar-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 300px;
+  height: 100%;
+  align-items: center;
+  color: black;
+}
+
+.side-bar-container .content {
+  width: 145px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section-page {
+  height: 100vh;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 70px 0 30px 0;
+}
+
+ul {
+  gap: 30px;
+}
+
+li {
+  font-size: 1.2rem;
+  color: rgb(114, 114, 114);
+  margin-bottom: 20px;
+}
+
+.bottom-ul {
+  margin-top: auto;
+  font-weight: 800;
+}
+
+.bottom-ul li {
+  margin-top: auto;
+  font-weight: 800;
+  color: black;
+}

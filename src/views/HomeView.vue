@@ -1,15 +1,32 @@
 <template>
-  <div class="home"></div>
+  <div>
+    <PageHeader @click="updateSection" />
+    <div v-if="section == 'places'">aaaaaaa</div>
+  </div>
 </template>
 
 <script lang="ts">
-/* import { defineComponent } from "vue";
-// import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import router from "../router/";
 
-export default defineComponent({
+export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    PageHeader,
   },
-}); */
+  data() {
+    return {
+      section: "",
+    };
+  },
+  created() {
+    (this as any).section = router.currentRoute.value.params.select;
+  },
+  methods: {
+    updateSection() {
+      (this as any).section = router.currentRoute.value.params.select;
+    },
+  },
+};
 </script>
