@@ -48,6 +48,6 @@ ul {
 
 .page {
   flex-direction: column;
-  width: 100%;
+  width: 90%;
 }
 </style>

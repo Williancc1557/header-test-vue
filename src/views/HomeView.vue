@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageHeader @click="updateSection" />
-    <div v-if="section == 'places'">aaaaaaa</div>
+    <ListCompanies />
   </div>
 </template>
 
@@ -9,11 +9,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
 import router from "../router/";
+import ListCompanies from "../components/ListCompanies/ListCompanies.vue";
 
 export default {
   name: "HomeView",
   components: {
     PageHeader,
+    ListCompanies,
   },
   data() {
     return {
