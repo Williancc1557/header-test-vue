@@ -1,7 +1,18 @@
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .table-container {
   margin: 16px 40px;
 }
-
 .table {
   height: 10px;
+}
+
+.customize-table {
+  --easy-table-body-row-height: 56px;
+  --easy-table-body-row-font-color: rgb(114, 114, 114);
+  --easy-table-body-even-row-font-color: rgb(114, 114, 114);
+  --easy-table-body-row-font-size: 0.9rem;
 }

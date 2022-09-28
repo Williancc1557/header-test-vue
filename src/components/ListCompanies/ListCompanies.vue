@@ -1,5 +1,11 @@
 <template>
   <div class="table-container">
+    <div class="buttons-container">
+      <div class="navigation-buttons">
+        <i></i>
+      </div>
+      <div class="action-buttons"></div>
+    </div>
     <EasyDataTable
       v-model:items-selected="itemsSelected"
       fixed-checkbox
@@ -9,8 +15,9 @@
       alternating
       hide-footer
       table-class-name="customize-table"
-      table-height="500"
+      :table-height="500"
     />
+    <button @click="test">aaaaa</button>
   </div>
 </template>
 
@@ -24,9 +31,10 @@ export default {
   name: "ListCompanies",
   data() {
     return {
+      itemsSelected: ref([]),
       headers: [
-        { text: "NAME", value: "name", fixed: true, width: 180 }, // set fixed to true
-        { text: "TYPE", value: "type", fixed: true, width: 80 }, // set fixed to true
+        { text: "NAME", value: "name", width: 180 }, // set fixed to true
+        { text: "TYPE", value: "type", width: 80 }, // set fixed to true
         { text: "CITY", value: "city", width: 80 },
         { text: "COUNTRY", value: "country", width: 100 },
         { text: "CREATED AT", value: "created", width: 80 },
@@ -46,7 +54,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
+          name: "claudia",
           type: "GSW",
           city: 30,
           country: "G",
@@ -56,7 +64,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
+          name: "willian",
           type: "GSW",
           city: 30,
           country: "G",
@@ -66,7 +74,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
+          name: "rita",
           type: "GSW",
           city: 30,
           country: "G",
@@ -76,7 +84,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
+          name: "meta",
           type: "GSW",
           city: 30,
           country: "G",
@@ -86,7 +94,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
+          name: "discord",
           type: "GSW",
           city: 30,
           country: "G",
@@ -96,7 +104,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
+          name: "Header",
           type: "GSW",
           city: 30,
           country: "G",
@@ -106,7 +114,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
+          name: "B2U",
           type: "GSW",
           city: 30,
           country: "G",
@@ -116,147 +124,7 @@ export default {
           actions: "USA",
         },
         {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Stephen Curry",
+          name: "Jala",
           type: "GSW",
           city: 30,
           country: "G",
@@ -266,12 +134,12 @@ export default {
           actions: "USA",
         },
       ] as Item[],
-      itemsSelected: ref([]),
     };
   },
+  methods: {
+    test() {
+      console.log((this as any).itemsSelected);
+    },
+  },
 };
-/*
-const deleteItem = () => {
-  console.log(itemsSelected.value[0]["player"]);
-}; */
 </script>

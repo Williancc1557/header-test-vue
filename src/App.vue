@@ -30,6 +30,7 @@ body,
 html {
   font-family: Roboto;
   height: 100vh;
+  overflow-x: hidden;
 }
 * {
   padding: 0;

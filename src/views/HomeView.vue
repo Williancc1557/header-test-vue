@@ -1,7 +1,8 @@
 <template>
   <div>
     <PageHeader @click="updateSection" />
-    <ListCompanies />
+
+    <ListCompanies v-if="section === 'places'" />
   </div>
 </template>
 
