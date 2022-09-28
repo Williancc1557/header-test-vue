@@ -152,22 +152,23 @@ export default {
     };
   },
   methods: {
-    del() {
+    async del() {
       const data = (this as any).itemsSelected as Array<any>;
-      console.log(data);
-
       const object = (this as any).items as Company[];
+
+      if (data.length == object.length) {
+        return ((this as any).items = []);
+      }
+
       data.forEach((value: any) => {
         const index = object.findIndex(
           (finded: Company) => finded.name == value.name
         );
-        console.log(value);
 
         object.splice(index, 1);
       });
 
       (this as any).items = object;
-
       (this as any).itemsSelected = ref([]);
     },
   },
