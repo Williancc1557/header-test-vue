@@ -2,14 +2,17 @@
   <div class="table-container">
     <div class="buttons-container">
       <div class="navigation-buttons">
-        <i></i>
+        <i class="fa fa-list" aria-hidden="true"></i>
+        <font-awesome-icon icon="th-large" />
       </div>
-      <div class="action-buttons"></div>
+      <div class="action-buttons">
+        <font-awesome-icon icon="rotate-right" />
+        <font-awesome-icon icon="trash" @click="del" />
+      </div>
     </div>
     <EasyDataTable
       v-model:items-selected="itemsSelected"
       fixed-checkbox
-      show-index
       :headers="headers"
       :items="items"
       alternating
@@ -17,15 +20,27 @@
       table-class-name="customize-table"
       :table-height="500"
     />
-    <button @click="test">aaaaa</button>
   </div>
 </template>
 
 <style src="./styles.css" scoped></style>
 
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { ref } from "vue";
 import type { Header, Item } from "vue3-easy-data-table";
+
+interface Company {
+  name: string;
+  type: string;
+  city: number;
+  country: string;
+  created: string;
+  updated: number;
+  owner: string;
+  actions: string;
+}
 
 export default {
   name: "ListCompanies",
@@ -137,8 +152,23 @@ export default {
     };
   },
   methods: {
-    test() {
-      console.log((this as any).itemsSelected);
+    del() {
+      const data = (this as any).itemsSelected as Array<any>;
+      console.log(data);
+
+      const object = (this as any).items as Company[];
+      data.forEach((value: any) => {
+        const index = object.findIndex(
+          (finded: Company) => finded.name == value.name
+        );
+        console.log(value);
+
+        object.splice(index, 1);
+      });
+
+      (this as any).items = object;
+
+      (this as any).itemsSelected = ref([]);
     },
   },
 };
