@@ -5,13 +5,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/customer/:select",
     name: "home",
     component: HomeView,
-  } /*
+  },
   {
     path: "/about",
     name: "about",
 
     component: () => import("../views/AboutView.vue"),
-  }, */,
+  },
 ];
 
 const router = createRouter({

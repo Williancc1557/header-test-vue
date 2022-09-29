@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import router from "../../router/";
 
+import NewTablePop from "../NewTablePop/NewTablePop.vue";
+
 export default {
   data() {
     return {
@@ -12,6 +14,9 @@ export default {
       path: `/customer/places`,
     });
   },
+  components: {
+    NewTablePop,
+  },
   methods: {
     change(el: any): void {
       const id = el.target.id;
@@ -22,6 +27,9 @@ export default {
       router.push({
         path: `/customer/${id}`,
       });
+    },
+    changeShowModal() {
+      (this as any).$refs.newTable.changeShowModal();
     },
   },
 };

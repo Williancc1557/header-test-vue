@@ -5,6 +5,7 @@ import Vue3EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faClose,
   faFaceGrinWide,
   faListUl,
   faRotateRight,
@@ -14,7 +15,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const app = createApp(App);
-library.add(faListUl, faFaceGrinWide, faThLarge, faTrash, faRotateRight);
+library.add(
+  faListUl,
+  faFaceGrinWide,
+  faThLarge,
+  faTrash,
+  faRotateRight,
+  faClose
+);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.component("EasyDataTable", Vue3EasyDataTable);
 app.use(router);

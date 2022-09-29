@@ -27,6 +27,7 @@
   background-color: #fa4600;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 .choices {

@@ -1,9 +1,10 @@
 <template>
   <div class="page-header-container">
+    <NewTablePop :showModalProp="false" ref="newTable" />
     <p class="subtitle">Customer Engagement</p>
     <div class="title-button">
       <span>Location</span>
-      <button>New Place</button>
+      <button @click="changeShowModal()">New Place</button>
     </div>
     <ul class="choices">
       <li
