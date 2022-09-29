@@ -14,37 +14,41 @@
           <div class="content">
             <form class="sent-data">
               <label for="name">Name</label>
-              <input name="name" type="text" />
+              <input v-model="data.name" name="name" type="text" />
               <label for="type">Type</label>
-              <input name="type" type="text" />
+              <input v-model="data.type" name="type" type="text" />
               <div class="coordinates">
                 <div>
                   <label for="latitude">Latitude</label>
-                  <input name="latitude" type="text" />
+                  <input v-model="data.latitude" name="latitude" type="text" />
                 </div>
                 <div>
                   <label for="longitude">Longitude</label>
-                  <input name="longitude" type="text" />
+                  <input
+                    v-model="data.longitude"
+                    name="longitude"
+                    type="number"
+                  />
                 </div>
               </div>
               <div class="locations">
                 <div>
                   <label for="city">City</label>
-                  <input name="city" type="text" />
+                  <input v-model="data.city" name="city" type="text" />
                 </div>
                 <div>
                   <label for="state">State</label>
-                  <input name="state" type="text" />
+                  <input v-model="data.state" name="state" type="text" />
                 </div>
               </div>
               <label for="country">Country</label>
-              <input name="country" type="text" />
+              <input v-model="data.country" name="country" type="text" />
             </form>
             <div class="map"></div>
           </div>
           <div class="modal-buttons-container">
             <button class="cancel-button">Cancel</button>
-            <button class="save-button">Save</button>
+            <button class="save-button" @click="save">Save</button>
           </div>
         </div>
       </div>

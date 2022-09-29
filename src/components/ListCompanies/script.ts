@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { ref } from "vue";
 import type { Header, Item } from "vue3-easy-data-table";
+import axios from "axios";
 
 interface Company {
   name: string;
@@ -38,106 +37,31 @@ export default {
           created: "6-2",
           updated: 185,
           owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "claudia",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "willian",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "rita",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "meta",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "discord",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Header",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "B2U",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
-        },
-        {
-          name: "Jala",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-          actions: "USA",
         },
       ] as Item[],
     };
   },
+  async created() {
+    const { body } = (await axios.get("http://localhost:3000/find")).data;
+
+    (this as any).items = [...(this as any).items, ...body];
+  },
   methods: {
-    async del() {
-      const data = (this as any).itemsSelected as Array<any>;
+    del() {
+      const selected = (this as any).itemsSelected as Company[];
       const object = (this as any).items as Company[];
 
-      if (data.length == object.length) {
+      if (selected.length == object.length) {
         return ((this as any).items = []);
       }
 
-      data.forEach((value: any) => {
+      selected.forEach(async (value: any) => {
         const index = object.findIndex(
           (finded: Company) => finded.name == value.name
         );
 
         object.splice(index, 1);
+        await axios.delete(`http://localhost:3000/delete/${object[index]}`);
       });
 
       (this as any).items = object;
