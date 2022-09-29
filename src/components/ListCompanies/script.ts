@@ -3,6 +3,7 @@ import type { Header, Item } from "vue3-easy-data-table";
 import axios from "axios";
 
 interface Company {
+  id: number;
   name: string;
   type: string;
   city: number;
@@ -19,6 +20,7 @@ export default {
     return {
       itemsSelected: ref([]),
       headers: [
+        { text: "ID", value: "id", width: 50 }, // set fixed to true
         { text: "NAME", value: "name", width: 180 }, // set fixed to true
         { text: "TYPE", value: "type", width: 80 }, // set fixed to true
         { text: "CITY", value: "city", width: 80 },
@@ -28,17 +30,7 @@ export default {
         { text: "OWNER", value: "owner", width: 80 },
         { text: "ACTIONS", value: "actions", width: 80 },
       ] as Header[],
-      items: [
-        {
-          name: "Stephen Curry",
-          type: "GSW",
-          city: 30,
-          country: "G",
-          created: "6-2",
-          updated: 185,
-          owner: "Davidson",
-        },
-      ] as Item[],
+      items: [] as Item[],
     };
   },
   async created() {
@@ -60,8 +52,8 @@ export default {
           (finded: Company) => finded.name == value.name
         );
 
+        await axios.delete(`http://localhost:3000/delete/${object[index].id}`);
         object.splice(index, 1);
-        await axios.delete(`http://localhost:3000/delete/${object[index]}`);
       });
 
       (this as any).items = object;
