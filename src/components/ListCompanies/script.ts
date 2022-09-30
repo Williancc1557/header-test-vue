@@ -39,11 +39,12 @@ export default {
     (this as any).items = [...(this as any).items, ...body];
   },
   methods: {
-    del() {
+    async del() {
       const selected = (this as any).itemsSelected as Company[];
       const object = (this as any).items as Company[];
 
       if (selected.length == object.length) {
+        await axios.delete(`http://localhost:3000/delete-all`);
         return ((this as any).items = []);
       }
 
